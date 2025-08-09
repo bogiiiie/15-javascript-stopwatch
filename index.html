@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <meta name="author" content="Stephen William G. De Jesus" />
+    <meta name="description"
+        content="A precise and interactive stopwatch web application built with HTML, JavaScript, and Font Awesome icons." />
+    <meta name="keywords"
+        content="Stopwatch, Timer, Lap Timer, HTML Stopwatch, JavaScript Stopwatch, Font Awesome Stopwatch, Time Tracker App" />
+    <meta name="robots" content="index, follow" />
+    <meta name="application-name" content="Stopwatch App" />
+    <meta name="generator" content="HTML, Tailwind CSS, JavaScript" />
+
+    <title>Stopwatch Web App</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" />
+</head>
+
+<body class="flex flex-col justify-between items-center w-full min-h-screen px-4 py-6 bg-black">
+    <main id="main-content" role="main" class="flex-1 w-full flex flex-col justify-center items-center gap-10">
+        <!-- App Header -->
+        <header id="app-header" class="w-full max-w-[570px]" role="banner">
+            <div id="app-intro" class="header-intro text-center space-y-2" aria-label="Application introduction">
+                <h2 id="app-title" class="text-4xl font-bold text-white">Stopwatch</h2>
+                <p id="app-description" class="font-medium text-gray-400">Precision timing at your fingertips</p>
+            </div>
+        </header>
+
+        <!-- Timer Display Section -->
+        <section id="timer-display"
+            class="timer-section w-full max-w-[570px] flex flex-col justify-cetner items-center gap-7"
+            aria-labelledby="app-title">
+            <h1 id="time-display"
+                class="time-display text-7xl sm:text-8xl md:text-9xl font-bold font-mono flex flex-wrap justify-center items-center text-white text-center"
+                role="timer" aria-live="polite">
+                <span id="minutes" class="time-unit">00</span>
+                <span class="time-separator">:</span>
+                <span id="seconds" class="time-unit">00</span>
+                <span class="time-separator">.</span>
+                <span id="milliseconds" class="time-unit">00</span>
+            </h1>
+
+            <!-- Control Buttons -->
+            <nav id="controls" class="controls grid place-items-center  grid-cols-2 gap-6 w-fit" role="navigation"
+                aria-label="Stopwatch controls">
+                <button id="start-btn"
+                    class="control-btn space-x-0.5  uppercase bg-green-600/90 text-white w-fit px-7 py-3 rounded-4xl hover:bg-green-700/90 active:bg-green-700/90 active:scale-95 transition cursor-pointer"
+                    type="button" aria-label="Start the stopwatch">
+                    <i class="fa-solid fa-play" aria-hidden="true"></i>
+                    <span class="btn-label font-bold">Start</span>
+                </button>
+                <button id="pause-btn"
+                    class="control-btn hidden  space-x-0.5  uppercase bg-orange-600/90 text-white w-fit px-7 py-3 rounded-4xl hover:bg-orange-700/90 active:bg-orange-700/90 active:scale-95 transition cursor-pointer"
+                    type="button" aria-label="Pause the stopwatch">
+                    <i class="fa-solid fa-pause" aria-hidden="true"></i>
+                    <span class="btn-label font-bold">Pause</span>
+                </button>
+                <button id="reset-btn"
+                    class="control-btn space-x-0.5  uppercase bg-red-600/90 text-white w-fit px-7 py-3 rounded-4xl hover:bg-red-700/90 active:bg-red-700/90 active:scale-95 transition cursor-pointer"
+                    type="button" aria-label="Reset the stopwatch">
+                    <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>
+                    <span class="btn-label font-bold">Reset</span>
+                </button>
+                <button id="lap-btn"
+                    class="control-btn hidden space-x-0.5  uppercase bg-blue-600/90 text-white w-full px-7 py-3 rounded-4xl hover:bg-blue-700/90 active:bg-blue-700/90 active:scale-95 transition cursor-pointer col-span-2"
+                    type="button" aria-label="Record a lap">
+                    <i class="fa-solid fa-flag"></i>
+                    <span class="btn-label font-bold">Lap</span>
+                </button>
+            </nav>
+
+            <!-- Lap Times Section -->
+            <section id="lap-times"
+                class="lap-times-section  hidden flex-col justify-center items-center gap-3 w-full text-center"
+                aria-labelledby="lap-heading">
+                <p id="lap-heading" class="lap-title text-gray-400 font-medium">Lap Times</p>
+                <ul id="lap-list"
+                    class="lap-list text-white flex flex-col justify-start items-center gap-3 w-full max-h-[160px] overflow-y-scroll">
+                </ul>
+
+            </section>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="site-footer" class="text-gray-400 flex flex-col justify-cetner items-center gap-1.5 text-center"
+        role="contentinfo">
+        <p id="copyright" class="text-sm">
+            &copy; <time id="year"></time> All rights reserved. Created by
+            <a id="creator-link" class="underline hover:text-white active:text-white transition cursor-pointer"
+                href="https://www.facebook.com/stephenwilliam.dejesus.5/" target="_blank" rel="noopener"
+                aria-label="Stephen William G. De Jesus Facebook profile">Stephen William G. De Jesus</a>
+        </p>
+
+        <!-- Social Links -->
+        <nav id="social-links" aria-label="Social media links">
+            <ul class="social-icons flex justify-cetner items-center gap-2 text-lg">
+                <li class="hover:text-white active:text-white transition cursor-pointer">
+                    <a href="https://github.com/bogiiiie" target="_blank" rel="noopener" aria-label="GitHub Profile">
+                        <i class="fa-brands fa-github" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="hover:text-white active:text-white transition cursor-pointer">
+                    <a href="https://www.facebook.com/stephenwilliam.dejesus.5/" target="_blank" rel="noopener"
+                        aria-label="Facebook Profile">
+                        <i class="fa-brands fa-facebook" aria-hidden="true"></i>
+                    </a>
+                </li>
+                <li class="hover:text-white active:text-white transition cursor-pointer">
+                    <a href="https://www.instagram.com/stephenwilliamdejesus/" target="_blank" rel="noopener"
+                        aria-label="Instagram Profile">
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
